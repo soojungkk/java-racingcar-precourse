@@ -10,6 +10,7 @@ public class RacingGameInfo {
 
     public RacingGameInfo(String[] carNames, int tryTime) {
         validateCarNames(carNames);
+        validateTryTime(tryTime);
 
         this.carNames = Arrays.asList(carNames);
         this.tryTime = tryTime;
@@ -18,6 +19,17 @@ public class RacingGameInfo {
     private void validateCarNames(String[] carNames) {
         if (carNames.length == 0) {
             throw new IllegalArgumentException("[ERROR] 경주할 자동차가 하나도 없습니다.");
+        }
+        for (String carName : carNames) {
+            if (carName.trim().isEmpty()) {
+                throw new IllegalArgumentException("[ERROR] 자동차 이름이 비어져있습니다.");
+            }
+        }
+    }
+
+    private void validateTryTime(int tryTime) {
+        if (tryTime <= 0) {
+            throw new IllegalArgumentException("[ERROR] 시도할 회수는 1이상이어야 합니다.");
         }
     }
 
