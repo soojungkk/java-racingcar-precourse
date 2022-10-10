@@ -16,11 +16,15 @@
 - InputView, OutputView
   - 입출력 담당 클래스
 
-- RacingGameInfo
+- CarsNames
   - DTO 역할
-  - 입력받은 자동차 이름 리스트, 시도할 회수를 필드값으로 가지고 있음
+  - 입력받은 자동차 이름 리스트를 필드값으로 가지고 있음
   - 자동차 이름 리스트가 비어져 있는지 validate 추가
+- TryTime
+  - DTO 역할
   - 시도할 회수가 1이상인지 validate 추가
+  - 시도할 회수 입력값이 숫자인지 validate 추가
+
 - RacingGame
   - 경주 게임 담당 클래스
   - RacingGameInfo로부터 원하는 값을 받아 Cars 객체 생성
