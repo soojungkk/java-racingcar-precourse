@@ -2,20 +2,21 @@ package racingcar;
 
 import racingcar.domain.Winners;
 import racingcar.domain.playStrategy.RandomPlay;
-import racingcar.dto.RacingGameInfo;
+import racingcar.dto.CarNames;
 import racingcar.domain.RacingGame;
+import racingcar.dto.TryTime;
 import racingcar.ui.InputView;
 import racingcar.ui.OutputView;
 
 public class Application {
     public static void main(String[] args) {
         // input racingCar names and tryCount
-        RacingGameInfo racingGameInfo = InputView.getRacingGameInfo();
+        CarNames carNames = InputView.getCarNames();
 
-        RacingGame racingGame = new RacingGame(racingGameInfo);
-        int tryTime = racingGameInfo.getTryTime();
+        RacingGame racingGame = new RacingGame(carNames);
+        TryTime tryTime = InputView.getTryTime();
 
-        for (int i = 0; i < tryTime; i++) {
+        for (int i = 0; i < tryTime.getValue(); i++) {
             racingGame.go(new RandomPlay());
 
             // print racingCar move

@@ -3,15 +3,15 @@ package racingcar.domain;
 import racingcar.domain.car.Car;
 import racingcar.domain.car.Cars;
 import racingcar.domain.playStrategy.PlayBehavior;
-import racingcar.dto.RacingGameInfo;
+import racingcar.dto.CarNames;
 
 import java.util.List;
 
 public class RacingGame {
     private final Cars cars;
 
-    public RacingGame(RacingGameInfo racingGameInfo) {
-        this.cars = new Cars(racingGameInfo);
+    public RacingGame(CarNames carNames) {
+        this.cars = new Cars(carNames);
     }
 
     public void go(PlayBehavior playBehavior) {

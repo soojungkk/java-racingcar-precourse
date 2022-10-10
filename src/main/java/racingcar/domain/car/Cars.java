@@ -1,7 +1,7 @@
 package racingcar.domain.car;
 
 import racingcar.domain.playStrategy.PlayBehavior;
-import racingcar.dto.RacingGameInfo;
+import racingcar.dto.CarNames;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,9 +9,9 @@ import java.util.List;
 public class Cars {
     private final List<Car> carList;
 
-    public Cars(RacingGameInfo racingGameInfo) {
+    public Cars(CarNames carNames) {
         this.carList = new ArrayList<>();
-        initCarList(racingGameInfo.getCarNames());
+        initCarList(carNames.getValues());
     }
 
     private void initCarList(List<String> carNames) {
