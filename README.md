@@ -1,5 +1,4 @@
 # 자동차 경주 게임
-
 ## 요구 사항
 
 - 주어진 횟수 동안 n대의 자동차는 전진 또는 멈출 수 있다.
@@ -13,21 +12,33 @@
 
 ## 기능 정리
 
-* 입출력 담당 클래스(InputView, OutputView)
 
-* 게임 담당 클래스(RacingGame)
-    - 자동차 이동 메소드 추가 (Cars에게 메시지 전달)
+- InputView, OutputView
+  - 입출력 담당 클래스
 
-* Car
-    - 자동차 이름, 현재 위치 필드값을 가지고 있는 객체
-    - 자동차 이름이 5이하인지 validate 추가
-    - isGo가 true이면 position은 1 증가
-    - isGo가 false이면 position은 그대로
-
-* Winners
-    - 제일 멀리간 우승자 뽑아내는 클래스
-    - 우승자는 한 명 이상일 수 있음
-
-* Application
-    - Main 클래스
+- RacingGameInfo
+  - DTO 역할
+  - 입력받은 자동차 이름 리스트, 시도할 회수를 필드값으로 가지고 있음
+  - 자동차 이름 리스트가 비어져 있는지 validate 추가
+  - 시도할 회수가 1이상인지 validate 추가
+- RacingGame
+  - 경주 게임 담당 클래스
+  - RacingGameInfo로부터 원하는 값을 받아 Cars 객체 생성
+  - 자동차 이동 메소드 추가 (Cars에게 메시지 전달)
+- Cars
+  - List<Car> Wrapper 클래스
+  - 자동차 이동 메소드 추가 (Car에게 메시지 전달)
+- Car
+  - 자동차 이름, 현재 위치 필드값을 가지고 있는 객체
+  - 자동차 이름이 5이하인지 validate 추가
+  - isGo가 true이면 position은 1 증가
+  - isGo가 false이면 position은 그대로
+- Winners
+  - 제일 멀리간 우승자 뽑아내는 클래스
+  - 우승자는 한 명 이상일 수 있음
+- PlayBehavior
+  - 자동차 전진관련 메소드 정의한 인터페이스
+  - 전략 패턴 사용
+- Application
+  - Main 클래스
 
