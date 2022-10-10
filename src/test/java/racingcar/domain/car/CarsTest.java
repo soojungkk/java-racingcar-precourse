@@ -1,27 +1,19 @@
 package racingcar.domain.car;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.playStrategy.RandomPlay;
-import racingcar.dto.RacingGameInfo;
+import racingcar.dto.CarNames;
 
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 class CarsTest {
-
     private final String[] carNames = new String[]{"pobi", "woni"};
-    private RacingGameInfo racingGameInfo;
-
-    @BeforeEach
-    void setUp() {
-        racingGameInfo = new RacingGameInfo(new String[]{"pobi", "woni"}, 2);
-    }
 
     @Test
     void Cars_셋팅() {
-        Cars cars = new Cars(racingGameInfo);
+        Cars cars = new Cars(new CarNames(carNames));
 
         List<Car> carList = cars.getCarList();
         assertThat(carList.size()).isEqualTo(carNames.length);
@@ -33,7 +25,7 @@ class CarsTest {
 
     @Test
     void 자동차들_이동() {
-        Cars cars = new Cars(racingGameInfo);
+        Cars cars = new Cars(new CarNames(carNames));
         cars.go(new RandomPlay() {
             @Override
             public boolean isGo() {
@@ -49,7 +41,7 @@ class CarsTest {
 
     @Test
     void 자동차들_이동_안함() {
-        Cars cars = new Cars(racingGameInfo);
+        Cars cars = new Cars(new CarNames(carNames));
         cars.go(new RandomPlay() {
             @Override
             public boolean isGo() {
